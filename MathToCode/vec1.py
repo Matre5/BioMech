@@ -16,15 +16,11 @@ def calculate_angle(A, B, C):
     
     cos_angle = V1_V2/ (V1_mag * V2_mag)
     
+    cos_angle = np.clip(cos_angle, -1.0, 1.0)
+    
     angle = np.arccos(cos_angle)
 
     angle_deg = np.degrees(angle)
     
     return angle_deg
 
-hip   = (3, 6)
-knee  = (3, 3)
-ankle = (5, 1)
-
-angle = calculate_angle(hip, knee, ankle)    
-print(f"The knee angle {angle:2f}°")
